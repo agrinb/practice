@@ -1,0 +1,31 @@
+require 'csv'
+
+CSV.foreach('products.csv', headers: true) do |row|
+
+
+
+end
+  # process each row of the file here ...
+
+puts "Welcome to James' coffee emporium!"
+puts
+puts "1) Add item - $5.00 - Light"
+puts "2) Add item - $7.50 - Medium"
+puts "3) Add item - $9.75 - Bold"
+puts "4) Complete Sale"
+
+puts "Make a selection:"
+
+selection =
+
+
+until selection = 4
+  subtotal = 0
+  quantity_of_1 = 0
+  selection = gets.chomp.to_f
+  if selection = 1
+    puts "how many?"
+    quantity_of_1 = gets.chomp.to_f + quantity_of_1
+    light_total = quantity_of_1 * light_retail_price
+
+
