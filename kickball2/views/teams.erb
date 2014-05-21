@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>LACKP Teams</title>
+  </head>
+  <body>
+
+    <table>
+      <thead><%= @team.first[:team] %></thead>
+      <tbody>
+        <% @team.each do |player| %>
+          <tr>
+          <td><%= "#{player[:first_name]}" %></td>
+          <td><%="#{player[:last_name]}" %></td>
+          <td><%= "#{player[:position]}"%></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </body>
+</html>

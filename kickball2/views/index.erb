@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>LACKP</title>
+  </head>
+  <body>
+    <table>
+    <thead><h1>LACKP</h1>></thead>
+  <tbody>
+      <% @teams.each do |team| %>
+      <tr>
+      <td>
+        <a href= "/teams/<%= "#{team}"%>"><%= team %></a>
+      </td>
+      <tr>
+      </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </body>
+</html>
