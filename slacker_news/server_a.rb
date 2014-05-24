@@ -2,41 +2,17 @@ require 'sinatra'
 require "shotgun"
 require 'csv'
 require 'pry'
-require 'redis'
-require 'json'
-
-def get_connection
-  if ENV.has_key?("REDISCLOUD_URL")
-    Redis.new(url: ENV["REDISCLOUD_URL"])
-  else
-    Redis.new
-  end
-end
-
-def find_articles
-  redis = get_connection
-  serialized_articles = redis.lrange("slacker:articles", 0, -1)
-
-  articles = []
-
-  serialized_articles.each do |article|
-    articles << JSON.parse(article, symbolize_names: true)
-  end
-
-  articles
-end
-
-
-#################################################################
 
 get '/' do
-build_articles(find_articles)
+build_articles('articles.csv')
   erb :index
 end
 
 
 def build_articles(articles)
-@articles = articles
+@articles = []
+CSV.foreach(articles) do |row|
+  @articles << row
  end
  @articles
 end
@@ -59,18 +35,11 @@ post '/new_article' do
     @errors = errors
     erb :submit
   else
-      save_article(article_title, article_url)
-  end
+      CSV.open("articles.csv", "a+") do |csv|
+        csv << new_article
+      end
     redirect '/'
   end
-end
-
-
-def save_article(article_title, article_url)
-  article = { url: article_url, title: article_title }
-
-  redis = get_connection
-  redis.rpush("slacker:articles", article.to_json)
 end
 
 

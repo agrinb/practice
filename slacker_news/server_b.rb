@@ -30,7 +30,8 @@ end
 #################################################################
 
 get '/' do
-build_articles(find_articles)
+find_articles
+build_articles(articles)
   erb :index
 end
 

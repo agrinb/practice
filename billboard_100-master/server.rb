@@ -37,6 +37,6 @@ end
 
 get '/songs/:title' do
   @song = find_song(params[:title])
-  # binding.pry
+  binding.pry
   erb :show
 end

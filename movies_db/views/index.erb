@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Movies DB</title>
+  </head>
+  <body>
+  <h1>Movies</h1>
+  <ol>
+    <% @movies_db.each do |movie| %>
+      <li><a href="/movies/<%= movie[:id] %>"> <%= movie[:title] %></li></a>
+      <% end %>
+  </ol>
+<%= will_paginate @posts %>
+
+  </body>
+</html>

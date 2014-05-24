@@ -12,6 +12,10 @@ div {
   color: white;
 }
 
+.error {
+  color: red;
+}
+
 .right {
   float: right;
 }
@@ -28,7 +32,7 @@ div {
 #more_results {
   font-size: .8em;
   padding-left: 40px;
-  padding-bottom: 18px;
+  /*padding-bottom: 18px;*/
 
 }
 
@@ -166,7 +170,32 @@ ul {
     outline: 1;
 }
 
-.form input[type="text"], textarea {
+form #article_title {
+    width: 60%;
+    height:2em;
+    margin-top: 10px;
+    border: solid 1px #ccc;
+    padding:0.4em;
+    background-color: white;
+
+}
+
+form #article_url {
+    width: 60%;
+    height:1.5em;
+    margin-top: 10px;
+    border: solid 1px #ccc;
+    padding:0.4em;
+    background-color: white;
+}
+
+.form_labels {
+    font-family: verdana;
+    font-size: .7em;
+}
+
+
+/*.form input[type="text"], textarea {
     width:40em;
     height:8em;
     margin-top: 10px;
@@ -174,7 +203,7 @@ ul {
     padding:0.4em;
     background-color: white;
     box-shadow: inset 0 2px 3px rgba(0,0,0,0.2);
-}
+}*/
 
 .form input[type="button"] {
     background: white url(formelements-select.png) no-repeat center left;

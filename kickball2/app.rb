@@ -33,6 +33,12 @@ get '/' do
     @teams << player[:team]
   end
   end
+  @positions = []
+  @league.each do |player|
+    if !@positions.include?(player[:position])
+      @positions << player[:position]
+    end
+  end
   erb :index
 end
 

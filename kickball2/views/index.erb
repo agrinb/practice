@@ -5,17 +5,27 @@
   </head>
   <body>
     <table>
-    <thead><h1>LACKP</h1>></thead>
+    <thead><h1>LACKP</h1></thead>
   <tbody>
-      <% @teams.each do |team| %>
       <tr>
-      <td>
-        <a href= "/teams/<%= "#{team}"%>"><%= team %></a>
-      </td>
+        <% @teams.each do |team| %>
+        <td>
+
+          <a href= "/teams/<%= "#{team}"%>"><%= team %></a>
+        </td><tr></tr>
+         <% end %>
+      </tr>
       <tr>
+        <% @positions.each do |position| %>
+          <td>
+            <a href= "/positions/<%= "#{position}"%>"><%= position %></a>
+          </td><tr></tr>
+         <% end %>
       </tr>
       </tbody>
-      <% end %>
+
+
+
     </table>
   </body>
 </html>
